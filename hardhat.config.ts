@@ -1,19 +1,18 @@
-require("dotenv").config();
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
+import * as dotenv from "dotenv";
+
+dotenv.config();
 
 const config: HardhatUserConfig = {
   solidity: "0.8.30",
-
   networks: {
-    coreDaoSepolia: {
-      url: `${process.env.CORE_DAO_RPC_URL}`,
-      accounts: [`0x${process.env.PRIVATE_KEY}`], 
-    }
-  }
+    coreTestnet2: {
+      url: "https://rpc.test2.btcs.network",
+      chainId: 1114,
+      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
+    },
+  },
 };
 
 export default config;
-
-
-
