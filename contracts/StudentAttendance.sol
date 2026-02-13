@@ -31,7 +31,7 @@ contract StudentAttendance {
     function updateAttendance(uint256 _studentId, bool _present) external {
 
         require(_studentId < students.length, "Student does not exist");
-
+        
         students[_studentId].present = _present;
 
         emit AttendanceUpdated(_studentId, _present);

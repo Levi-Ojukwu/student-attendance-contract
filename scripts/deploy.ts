@@ -7,11 +7,8 @@ async function main() {
 
   const studentAttendance = await StudentAttendance.deploy();
 
-  // Wait for the deployment to be mined
-  await studentAttendance.waitForDeployment?.(); // TypeScript may need this
-  // Or in Hardhat 2.x with ethers 6, just await deploy:
-  // await studentAttendance.deployed();
-
+  await studentAttendance.waitForDeployment?.();
+  
   console.log("StudentAttendance deployed to:", studentAttendance.target);
 }
 
